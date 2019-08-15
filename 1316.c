@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void array_init(short* array, int array_length);
+void check_array_init(short* array, int array_length);
 
 int main() {
     int number_of_words; // 단어의 개수
@@ -15,10 +15,9 @@ int main() {
     scanf("%d", &number_of_words);
     gets(string); // 개행 제거
     for(word_count = 0; word_count < number_of_words; ++word_count) {
-        array_init(string, 101);
         gets(string);
         string_length = strlen(string);
-        array_init(alphabet_check, 123); // 체크 배열 초기화
+        check_array_init(alphabet_check, 123); // 체크 배열 초기화
 
         for(index = 0; index < string_length; ++index) {
             if(alphabet_check[string[index]] == 0) { // 한 번도 안나온 알파벳인 경우
@@ -42,9 +41,9 @@ int main() {
     printf("%d", group_word_count);
 }
 
-void array_init(short *array, int array_length) {
+void check_array_init(short *array, int array_length) {
     int index;
     for(index = 0; index < array_length; ++index) {
-        array[index] = '\0';
+        array[index] = 0;
     }
 }
