@@ -8,18 +8,10 @@ int main() {
     total_cost = a;
     total_income = 0;
     // A + x * B < x * C  -> x???
-    if(b > c) {
+    if(b >= c) {
         printf("%d", -1);
-        return 0;
-    }
-
-    for(count = 1; count <= 2100000000; ++count) {
-        total_cost += b;
-        total_income += c;
-        if(total_income > total_cost) {
-            printf("%lld", count);
-            break;
-        }
+    } else {
+        printf("%lld", (a / (c - b)) + 1);
     }
 
     return 0;
